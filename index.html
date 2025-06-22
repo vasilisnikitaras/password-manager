@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="light-mode">
+  <div id="authSection">
+    <h2 id="formTitle">Σύνδεση</h2>
+    <input id="authUsername" placeholder="Username" />
+    <input type="password" id="authPassword" placeholder="Master Password" />
+
+    <button id="loginBtn" onclick="submitLogin()">Είσοδος</button>
+    <button id="registerBtn" onclick="submitRegister()" style="display: none;">Εγγραφή</button>
+
+    <p id="authError" style="color: red;"></p>
+    <p>
+      <span id="toggleAuth" onclick="toggleAuthMode()" style="cursor: pointer; color: blue;">
+        Δεν έχεις λογαριασμό; Εγγράψου εδώ
+      </span>
+    </p>
+  </div>
+
+  <div id="managerSection" style="display: none;">
+    <button onclick="toggleTheme()">🌓 Εναλλαγή Theme</button>
+    <button onclick="exportPasswords()">⬇️ Εξαγωγή</button>
+    <button onclick="logout()">🚪 Αποσύνδεση</button>
+
+    <h2>➕ Προσθήκη Κωδικού</h2>
+    <input id="site" placeholder="Ιστοσελίδα" />
+    <input id="username" placeholder="Username" />
+    <div class="password-wrapper">
+      <input id="password" type="password" placeholder="Password" />
+      <span onclick="togglePasswordVisibility('password', this)">👁️</span>
+    </div>
+    <button onclick="savePassword()">Αποθήκευση</button>
+
+    <h3>🔐 Αποθηκευμένοι:</h3>
+    <ul id="passwordList"></ul>
+
+    <hr />
+    <h3>🔄 Αλλαγή Master Password</h3>
+    <input type="password" id="oldMaster" placeholder="Τρέχων Κωδικός" />
+    <input type="password" id="newMaster" placeholder="Νέος Κωδικός" />
+    <button onclick="changeMasterPassword()">Αλλαγή</button>
+    <p id="changeError" style="color: red;"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
