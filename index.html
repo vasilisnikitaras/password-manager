@@ -2,9 +2,23 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>Password Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaultVerse</title>
+
+  <!-- 🔗 Styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- 🌐 PWA / Mobile -->
+  <link rel="manifest" href="assets/manifest.json" />
+  <meta name="theme-color" content="#222222" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- 🧿 Favicon + Icons -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
 </head>
+
 <body class="light-mode">
   <div id="authSection">
     <h2 id="formTitle">Σύνδεση</h2>
@@ -48,5 +62,16 @@
   </div>
 
   <script src="script.js"></script>
+  
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('✅ Service Worker registered!'))
+        .catch(err => console.log('SW registration failed: ', err));
+    });
+  }
+</script>
+
 </body>
 </html>
