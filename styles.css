@@ -153,3 +153,20 @@ button:active {
   box-shadow: 0 0 5px rgba(51, 103, 214, 0.3);
   transition: transform 0.1s ease;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.vaultverse-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  width: 90%;
+}
+
